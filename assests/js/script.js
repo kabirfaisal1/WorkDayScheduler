@@ -1,37 +1,45 @@
-var saveBtn = $(".saveBtn");
+var saveBtnEl = $(".saveBtn");
+var timeBlockEl = ".time-block";
+var timeBoxDescriptionEl = ".description";
+var idAttributes = "id";
 var currentTime = moment().hour();// Get current hour number
+var timeSpans = {
+  future: "future",
+  present: "present",
+  past: "past"
+}
 
 $("#todayDate").text(moment().format("dddd, MMMM Do"));
 
 $(document).ready(function () {
-  saveBtn.on("click", function () {
+  saveBtnEl.on("click", function () {
     // Getting values of content on textarea and time on div
-    var userInput = $(this).siblings(".description").val().trim();
-    var time = $(this).parent().attr("id");
+    var userInput = $(this).siblings(timeBoxDescriptionEl).val().trim();
+    var time = $(this).parent().attr(idAttributes);
     // Save to local storage
     localStorage.setItem(time, userInput);
   });
-  
+
   // Coloring time block based on time in comparison to current time
   function timeColorSort() {
     // Use the each() method to loop over blocks, parsing integer on id name and removing hour text with split
-    $(".time-block").each(function () {
-      var eachHourBlocks = parseInt($(this).attr("id").split("hour")[1]);
-         // Check time and add/remove classes for background colors
-    if (eachHourBlocks < currentTime) {
-      $(this).removeClass("future");
-      $(this).removeClass("present");
-      $(this).addClass("past");
-    } else if (eachHourBlocks === currentTime) {
-      $(this).removeClass("past");
-      $(this).removeClass("future");
-      $(this).addClass("present");
-    } else {
-      $(this).removeClass("present");
-      $(this).removeClass("past");
-      $(this).addClass("future");
-    }
-  
+    $(timeBlockEl).each(function () {
+      var eachHourBlocks = parseInt($(this).attr(idAttributes).split("hour")[1]);
+      // Check time and add/remove classes for background colors
+      if (eachHourBlocks < currentTime) {
+        $(this).removeClass(timeSpans.future);
+        $(this).removeClass(timeSpans.present);
+        $(this).addClass(timeSpans.past);
+      } else if (eachHourBlocks === currentTime) {
+        $(this).removeClass(timeSpans.past);
+        $(this).removeClass(timeSpans.future);
+        $(this).addClass(timeSpans.present);
+      } else {
+        $(this).removeClass(timeSpans.present);
+        $(this).removeClass(timeSpans.past);
+        $(this).addClass(timeSpans.future);
+      }
+
     });
   }
   getSchduleData();
