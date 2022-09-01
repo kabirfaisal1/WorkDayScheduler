@@ -56,10 +56,17 @@ THEN the saved events persist
 
 # Test Case
 ```
-_To-DO_
+1. verify you see the current date
+2. input vaule dont save and refresh the page
+3. input vaule and save then refresh the page 
+4. verify each time block is color-coded to indicate whether it is in the past, present, or future
 ```
 
 ## App Screenshots
 
-_To-DO_
+## App Screenshots
+
+![Image at start.](./assests/images/screenshots/AttheStart.png)
+
+![Image at timeBox.](./assests/images/screenshots/timeBox.png)
 
