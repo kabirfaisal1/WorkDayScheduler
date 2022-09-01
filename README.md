@@ -1,29 +1,26 @@
 # WorkDayScheduler
 Createing a simple calendar application that allows a user to save events for each hour of the day. This app will run in the browser and feature dynamically updated HTML and CSS powered by jQuery.
 
-# Application criteria
 _To-DO_
+# Deployed URL
+https://kabirfaisal1.github.io/WorkDayScheduler/
+### Open Deployed URL from terminal
+ open -a 'google chrome' https://kabirfaisal1.github.io/WorkDayScheduler/
+
+
+# Application criteria
 
 # Folder structure 
 1. root will have 'index.html' file which will be the main application
 2. cssStyle will have 'style.css' file which will controll style and layout web pages
 3. jsScript will have 'script.js' file which will controll user interaction and validate the workflow of the application
 
-# How to Open the app-_To-DO_
-
- ### URL: 
- ```
-https://kabirfaisal1.github.io/JavaScriptQuiz/
- ```
+# How to Open the app-
 
  ### local
 
  Open terminal
- #### URL
- ```
-  open -a 'google chrome' https://kabirfaisal1.github.io/JavaScriptQuiz/
- 
- ```
+
  #### clone
  ```
  git clone https://github.com/kabirfaisal1/JavaScriptQuiz.git
