@@ -6,25 +6,23 @@ $("#todayDate").text(moment().format("dddd, MMMM Do"));
 $(document).ready(function () {
   saveBtn.on("click", function () {
     // Getting values of content on textarea and time on div
-    var text = $(this).siblings(".description").val().trim();
-    console.log(text);
+    var userInput = $(this).siblings(".description").val().trim();
     var time = $(this).parent().attr("id");
     // Save to local storage
-    localStorage.setItem(time, text);
+    localStorage.setItem(time, userInput);
   });
   
   // Coloring time block based on time in comparison to current time
   function timeColorSort() {
     // Use the each() method to loop over blocks, parsing integer on id name and removing hour text with split
     $(".time-block").each(function () {
-      var blockHour = parseInt($(this).attr("id").split("hour")[1]);
-      console.log(blockHour);
+      var eachHourBlocks = parseInt($(this).attr("id").split("hour")[1]);
          // Check time and add/remove classes for background colors
-    if (blockHour < currentTime) {
+    if (eachHourBlocks < currentTime) {
       $(this).removeClass("future");
       $(this).removeClass("present");
       $(this).addClass("past");
-    } else if (blockHour === currentTime) {
+    } else if (eachHourBlocks === currentTime) {
       $(this).removeClass("past");
       $(this).removeClass("future");
       $(this).addClass("present");
@@ -43,7 +41,8 @@ $(document).ready(function () {
 
 function getSchduleData() {
   // Getting data from local storage if it exists and displaying on the time blocks
-  $("#hour9 .description").val(localStorage.getItem("hour9"));
+  $("#hour08 .description").val(localStorage.getItem("hour08"));
+  $("#hour09 .description").val(localStorage.getItem("hour09"));
   $("#hour10 .description").val(localStorage.getItem("hour10"));
   $("#hour11 .description").val(localStorage.getItem("hour11"));
   $("#hour12 .description").val(localStorage.getItem("hour12"));
