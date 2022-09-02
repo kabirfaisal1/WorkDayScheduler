@@ -21,7 +21,7 @@ $(document).ready(function () {
     localStorage.setItem(time, userInput);
     }
     else{
-      console.log(`no vaule on userinput ${userInput}`);
+      console.log(`user tried to save ${userInput} without any vaule. so couldn't save`);
     }
   });
 
