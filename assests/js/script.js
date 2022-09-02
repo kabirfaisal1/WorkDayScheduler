@@ -15,9 +15,14 @@ $(document).ready(function () {
   saveBtnEl.on("click", function () {
     // Getting values of content on textarea and time on div
     var userInput = $(this).siblings(timeBoxDescriptionEl).val().trim();
+    if(userInput != null){
     var time = $(this).parent().attr(idAttributes);
     // Save to local storage
     localStorage.setItem(time, userInput);
+    }
+    else{
+      console.log(`no vaule on userinput ${userInput}`);
+    }
   });
 
   // Coloring time block based on time in comparison to current time
